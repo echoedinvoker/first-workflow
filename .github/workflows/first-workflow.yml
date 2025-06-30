@@ -1,0 +1,11 @@
+name: First Workflow # Name of the workflow
+on: workflow_dispatch # Trigger the workflow manually
+jobs: # Define jobs to run in the workflow
+    first-job: # Name of the job, indentation is important, yml is sensitive to it
+        runs-on: ubuntu-latest # define the environment to run the job, you can google `github actions runners` for more options
+        steps: # Define steps to execute in the job
+            # dash `-` means array, each step is an item in the array
+            - name: Checkout code # Name of the step
+              uses: actions/checkout@v2 # we use keyword `uses` to use an action, in this case we are using the checkout action to checkout the code from the repository
+            - name: Print Hello World # Name of the 2nd step
+              run: echo "Hello, World!" # we use keyword `run` to run a command
